@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://github.com</id>
+    <title>SmallPig的个人博客</title>
+    <updated>2021-08-24T02:45:54.596Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://github.com"/>
+    <link rel="self" href="https://github.com/atom.xml"/>
+    <subtitle>遵从本心</subtitle>
+    <logo>https://github.com/images/avatar.png</logo>
+    <icon>https://github.com/favicon.ico</icon>
+    <rights>All rights reserved 2021, SmallPig的个人博客</rights>
+    <entry>
+        <title type="html"><![CDATA[DiskGenius调整分区大小时报错]]></title>
+        <id>https://github.com/post/diskgenius-diao-zheng-fen-qu-da-xiao-shi-bao-cuo/</id>
+        <link href="https://github.com/post/diskgenius-diao-zheng-fen-qu-da-xiao-shi-bao-cuo/">
+        </link>
+        <updated>2021-08-24T02:45:17.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Bitmap中有标记为已使用的未用簇<br>
+<code>chkdsk /f /x c:</code></li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Windows系统添加ssh-add]]></title>
+        <id>https://github.com/post/windows-xi-tong-tian-jia-ssh-add/</id>
+        <link href="https://github.com/post/windows-xi-tong-tian-jia-ssh-add/">
+        </link>
+        <updated>2021-08-24T02:44:40.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>在git bash命令行输入</li>
+</ul>
+<pre><code>exec ssh-agent bash
+eval ssh-agent -s
+ssh-add &quot;路径&quot;
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[git配置代理]]></title>
+        <id>https://github.com/post/git-pei-zhi-dai-li/</id>
+        <link href="https://github.com/post/git-pei-zhi-dai-li/">
+        </link>
+        <updated>2021-08-24T02:43:41.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>设置socks代理</li>
+</ul>
+<pre><code>git config --global http.proxy 'socks5://127.0.0.1:1080'
+git config --global https.proxy 'socks5://127.0.0.1:1080'
+</code></pre>
+<ul>
+<li>设置https代理</li>
+</ul>
+<pre><code>git config --global https.proxy http://127.0.0.1:1080
+git config --global https.proxy https://127.0.0.1:1080
+</code></pre>
+<ul>
+<li>取消代理</li>
+</ul>
+<pre><code>git config --global --unset http.proxy
+git config --global --unset https.proxy
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[git-lfs上传大于100m的大文件]]></title>
+        <id>https://github.com/post/git-lfs-shang-chuan-da-yu-100m-de-da-wen-jian/</id>
+        <link href="https://github.com/post/git-lfs-shang-chuan-da-yu-100m-de-da-wen-jian/">
+        </link>
+        <updated>2021-08-24T02:42:39.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li><code>在项目目录git lfs install</code></li>
+<li><code>git lfs track '.文件后缀'</code></li>
+<li><code>git add .gitattributes</code></li>
+<li><code>git commit -m &quot;提交描述“</code></li>
+<li><code>git push</code></li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Ubuntu20.04安装Tomcat9]]></title>
+        <id>https://github.com/post/ubuntu2004-an-zhuang-tomcat9/</id>
+        <link href="https://github.com/post/ubuntu2004-an-zhuang-tomcat9/">
+        </link>
+        <updated>2021-08-24T02:41:33.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>安装Tomcat9<br>
+<code>sudo apt-get install tomcat9</code></li>
+<li>Tomcat9二进制文件目录<br>
+<code>/usr/share/tomcat9</code></li>
+<li>Tomcat9资源文件目录<br>
+<code>/var/lib/tomcat9</code></li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Ubuntu20.04安装MySQL8.0]]></title>
+        <id>https://github.com/post/ubuntu2004-an-zhuang-mysql80/</id>
+        <link href="https://github.com/post/ubuntu2004-an-zhuang-mysql80/">
+        </link>
+        <updated>2021-08-24T02:37:31.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="安装mysql80">安装MySQL8.0</h3>
+<p><code>sudo apt-get install mysql-server</code></p>
+<h3 id="执行安装脚本">执行安装脚本</h3>
+<p><code>sudo mysql_secure_installation</code></p>
+<pre><code>VALIDATE PASSWORD PLUGIN can be used to test passwords...
+Press y|Y for Yes, any other key for No: N (我的选项)
+
+Please set the password for root here...
+New password: (输入密码)
+Re-enter new password: (重复输入)
+
+By default, a MySQL installation has an anonymous user,
+allowing anyone to log into MySQL without having to have
+a user account created for them...
+Remove anonymous users? (Press y|Y for Yes, any other key for No) : Y (我的选项)
+
+Normally, root should only be allowed to connect from
+'localhost'. This ensures that someone cannot guess at
+the root password from the network...
+Disallow root login remotely? (Press y|Y for Yes, any other key for No) : N (我的选项)
+
+By default, MySQL comes with a database named 'test' that
+anyone can access...
+Remove test database and access to it? (Press y|Y for Yes, any other key for No) : Y(我的选项)
+
+Reloading the privilege tables will ensure that all changes
+made so far will take effect immediately.
+Reload privilege tables now? (Press y|Y for Yes, any other key for No) : Y (我的选项)
+</code></pre>
+<h3 id="配置远程访问">配置远程访问</h3>
+<p><code>sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf</code><br>
+注释掉</p>
+<ul>
+<li><code>bind-address = 127.0.0.1</code></li>
+<li><code>imysqlx-bind-address = 127.0.0.1</code></li>
+<li>配置远程账户<br>
+<code>sudo mysql -uroot -p</code></li>
+<li>应先创建新用户<br>
+<code>create user 'root'@'%' identified by '密码';</code></li>
+<li>执行授权<br>
+<code>GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';</code></li>
+<li>刷新<br>
+<code>flush privileges;</code></li>
+<li>授权远程<br>
+<code>ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '密码';</code></li>
+<li>刷新<br>
+<code>flush privileges;</code></li>
+</ul>
+<h3 id="重启mysql服务">重启mysql服务</h3>
+<p><code>sudo systemctl restart mysql</code></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://github.com/post/hello-gridea/</id>
+        <link href="https://github.com/post/hello-gridea/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<!-- more -->
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://gridea.dev/">Gridea 主页</a><br>
+<a href="http://fehey.com/">示例网站</a></p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+</feed>

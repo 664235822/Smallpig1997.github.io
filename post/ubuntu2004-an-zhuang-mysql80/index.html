@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Ubuntu20.04安装MySQL8.0 | SmallPig的个人博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://github.com/favicon.ico?v=1629773152611">
+<link rel="stylesheet" href="https://github.com/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="安装MySQL8.0
+sudo apt-get install mysql-server
+执行安装脚本
+sudo mysql_secure_installation
+VALIDATE PASSWORD PLUGIN can be used ..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://github.com">
+        <img src="https://github.com/images/avatar.png?v=1629773152611" class="site-logo">
+        <h1 class="site-title">SmallPig的个人博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      遵从本心
+    </div>
+    <div class="site-footer">
+      使用Github Pages搭建的个人博客 | <a class="rss" href="https://github.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Ubuntu20.04安装MySQL8.0</h2>
+            <div class="post-date">2021-08-24</div>
+            
+            <div class="post-content" v-pre>
+              <h3 id="安装mysql80">安装MySQL8.0</h3>
+<p><code>sudo apt-get install mysql-server</code></p>
+<h3 id="执行安装脚本">执行安装脚本</h3>
+<p><code>sudo mysql_secure_installation</code></p>
+<pre><code>VALIDATE PASSWORD PLUGIN can be used to test passwords...
+Press y|Y for Yes, any other key for No: N (我的选项)
+
+Please set the password for root here...
+New password: (输入密码)
+Re-enter new password: (重复输入)
+
+By default, a MySQL installation has an anonymous user,
+allowing anyone to log into MySQL without having to have
+a user account created for them...
+Remove anonymous users? (Press y|Y for Yes, any other key for No) : Y (我的选项)
+
+Normally, root should only be allowed to connect from
+'localhost'. This ensures that someone cannot guess at
+the root password from the network...
+Disallow root login remotely? (Press y|Y for Yes, any other key for No) : N (我的选项)
+
+By default, MySQL comes with a database named 'test' that
+anyone can access...
+Remove test database and access to it? (Press y|Y for Yes, any other key for No) : Y(我的选项)
+
+Reloading the privilege tables will ensure that all changes
+made so far will take effect immediately.
+Reload privilege tables now? (Press y|Y for Yes, any other key for No) : Y (我的选项)
+</code></pre>
+<h3 id="配置远程访问">配置远程访问</h3>
+<p><code>sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf</code><br>
+注释掉</p>
+<ul>
+<li><code>bind-address = 127.0.0.1</code></li>
+<li><code>imysqlx-bind-address = 127.0.0.1</code></li>
+<li>配置远程账户<br>
+<code>sudo mysql -uroot -p</code></li>
+<li>应先创建新用户<br>
+<code>create user 'root'@'%' identified by '密码';</code></li>
+<li>执行授权<br>
+<code>GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';</code></li>
+<li>刷新<br>
+<code>flush privileges;</code></li>
+<li>授权远程<br>
+<code>ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '密码';</code></li>
+<li>刷新<br>
+<code>flush privileges;</code></li>
+</ul>
+<h3 id="重启mysql服务">重启mysql服务</h3>
+<p><code>sudo systemctl restart mysql</code></p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://github.com/post/hello-gridea/">
+                  <h3 class="post-title">
+                    Hello Gridea
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
